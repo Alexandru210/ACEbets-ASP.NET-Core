@@ -8,7 +8,7 @@
 
         public Game? Game { get; set; }
 
-        //public decimal Amount { get; set; }
+        public decimal Amount { get; set; }
 
         public BetStatus? Status { get; set; }
     }
