@@ -55,7 +55,7 @@ namespace ACEbets.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Status")] Bet bet)
+        public async Task<IActionResult> Create([Bind("Id,Amount,Status")] Bet bet)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace ACEbets.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Status")] Bet bet)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Amount,Status")] Bet bet)
         {
             if (id != bet.Id)
             {

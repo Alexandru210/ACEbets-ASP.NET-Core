@@ -19,6 +19,21 @@
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="HomeOdds" class="control-label"></label>
+                <input asp-for="HomeOdds" class="form-control" />
+                <span asp-validation-for="HomeOdds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AwayOdds" class="control-label"></label>
+                <input asp-for="AwayOdds" class="form-control" />
+                <span asp-validation-for="AwayOdds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DrawOdds" class="control-label"></label>
+                <input asp-for="DrawOdds" class="form-control" />
+                <span asp-validation-for="DrawOdds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

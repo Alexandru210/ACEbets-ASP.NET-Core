@@ -15,6 +15,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.Date)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomeOdds)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AwayOdds)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DrawOdds)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -23,6 +32,15 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeOdds)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayOdds)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DrawOdds)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
