@@ -6,8 +6,9 @@
 
         public string? Name { get; set; }
 
-        //public ICollection<Game>? HomeGames { get; set; }
+        public string? City { get; set; }
 
-        //public ICollection<Game>? AwayGames { get; set; }
+        public string? Country { get; set; }
+
     }
 }

@@ -6,15 +6,11 @@
 
         public DateTime Date { get; set; }
 
-        //public Team? HomeTeam { get; set; }
+        public float HomeOdds { get; set; }
 
-        //public Team? AwayTeam { get; set; }
+        public float AwayOdds { get;set; }
 
-        //public decimal HomeOdds { get; set; }
-
-        //public decimal AwayOdds { get;set; }
-
-        //public decimal DrawOdds { get; set; }
+        public float DrawOdds { get; set; }
 
         public ICollection<Bet>? Bets { get; set; }
     }
