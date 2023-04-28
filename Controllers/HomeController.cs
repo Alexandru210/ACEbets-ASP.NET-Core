@@ -1,4 +1,5 @@
 ﻿using ACEbets.Models;
+using ACEbets.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,17 +7,31 @@ namespace ACEbets.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        ILog _log;
+
+        public HomeController(ILog log)
         {
-            _logger = logger;
+            _log = log;
         }
 
         public IActionResult Index()
         {
+            _log.Info("Executing /home/index");
+
             return View();
         }
+
+        /*public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }*/
+
+        /*public IActionResult Index()
+        {
+            return View();
+        }*/
 
         public IActionResult Privacy()
         {

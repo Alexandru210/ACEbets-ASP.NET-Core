@@ -9,6 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BettingContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("BettingDb")));
 builder.Services.Add(new ServiceDescriptor(typeof(ILog), new ConsoleLogger()));
+//builder.Services.Add()
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
