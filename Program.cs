@@ -1,4 +1,6 @@
 using ACEbets.Models;
+using ACEbets.Repositories.Interfaces;
+using ACEbets.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BettingContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("BettingDb")));
-
+builder.Services.Add(new ServiceDescriptor(typeof(ILog), new ConsoleLogger()));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
