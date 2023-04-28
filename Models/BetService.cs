@@ -2,9 +2,9 @@
 
 namespace ACEbets.Models
 {
-    public class BettingContext : DbContext
+    public class BetService : DbContext
     {
-        public BettingContext(DbContextOptions<BettingContext> options) : base(options) { }
+        public BetService(DbContextOptions<BetService> options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Game> Games { get; set; }

@@ -6,36 +6,39 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ACEbets.Models;
+using ACEbets.Services;
+using BetService = ACEbets.Services.BetService;
 
 namespace ACEbets.Controllers
 {
     public class BetsController : Controller
     {
-        private readonly BettingContext _context;
+        private readonly BetService _betService;
 
-        public BetsController(BettingContext context)
+        public BetsController(BetService betService)
         {
-            _context = context;
+            _betService = betService;
         }
 
         // GET: Bets
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-              return _context.Bets != null ? 
-                          View(await _context.Bets.ToListAsync()) :
-                          Problem("Entity set 'BettingContext.Bets'  is null.");
+            var bet = _betService.GetBet();
+            return View(bet);
         }
 
         // GET: Bets/Details/5
-        public async Task<IActionResult> Details(int? id)
+     
+
+        public IActionResult Details(int? id)
         {
-            if (id == null || _context.Bets == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var bet = await _context.Bets
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var bet = _betService.GetBet()
+                .FirstOrDefault(m => m.Id == id);
             if (bet == null)
             {
                 return NotFound();
@@ -55,26 +58,28 @@ namespace ACEbets.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Amount,Status")] Bet bet)
+        //public async Task<IActionResult> Create([Bind("Id,Amount,Status")] Bet bet)
+        public IActionResult Create([Bind("Id,Amount,Status")] Bet bet)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(bet);
-                await _context.SaveChangesAsync();
+                _betService.AddBet(bet);
+                _betService.Save();
                 return RedirectToAction(nameof(Index));
             }
             return View(bet);
         }
 
         // GET: Bets/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+
+        public IActionResult Edit(int? id)
         {
-            if (id == null || _context.Bets == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var bet = await _context.Bets.FindAsync(id);
+            var bet = _betService.GetBet().FirstOrDefault(m => m.Id == id);
             if (bet == null)
             {
                 return NotFound();
@@ -98,8 +103,8 @@ namespace ACEbets.Controllers
             {
                 try
                 {
-                    _context.Update(bet);
-                    await _context.SaveChangesAsync();
+                    _betService.UpdateBet(bet);
+                    _betService.Save();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -118,15 +123,16 @@ namespace ACEbets.Controllers
         }
 
         // GET: Bets/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        
+        public IActionResult Delete(int? id)
         {
-            if (id == null || _context.Bets == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var bet = await _context.Bets
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var bet = _betService.GetBet()
+                .FirstOrDefault(m => m.Id == id);
             if (bet == null)
             {
                 return NotFound();
@@ -138,25 +144,19 @@ namespace ACEbets.Controllers
         // POST: Bets/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        
+
+        /*public IActionResult DeleteConfirmed(int id)
         {
-            if (_context.Bets == null)
-            {
-                return Problem("Entity set 'BettingContext.Bets'  is null.");
-            }
-            var bet = await _context.Bets.FindAsync(id);
-            if (bet != null)
-            {
-                _context.Bets.Remove(bet);
-            }
-            
-            await _context.SaveChangesAsync();
+            var bet = _betService.GetBetByCondition(b => b.BetId == id).FirstOrDefault();
+            _betService.DeleteCompany(bet);
+            _betService.Save();
             return RedirectToAction(nameof(Index));
-        }
+        }*/
 
         private bool BetExists(int id)
         {
-          return (_context.Bets?.Any(e => e.Id == id)).GetValueOrDefault();
+            return _betService.GetBet().Any(e => e.Id == id);
         }
     }
 }

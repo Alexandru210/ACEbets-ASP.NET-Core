@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ACEbets.Migrations
 {
-    [DbContext(typeof(BettingContext))]
+    [DbContext(typeof(BetService))]
     [Migration("20230427225446_NewDatabase")]
     partial class NewDatabase
     {
