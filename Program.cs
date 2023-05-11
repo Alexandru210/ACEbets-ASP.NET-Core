@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<ACEbets.Models.BetService>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("BettingDb")));
+builder.Services.AddDbContext<ACEbets.Models.BettingContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("BettingDb")));
 builder.Services.Add(new ServiceDescriptor(typeof(ILog), new ConsoleLogger()));
 //builder.Services.Add()
 

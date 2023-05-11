@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ACEbets.Migrations
 {
-    [DbContext(typeof(BetService))]
+    [DbContext(typeof(BettingContext))]
     [Migration("20230427230605_AddAmount")]
     partial class AddAmount
     {

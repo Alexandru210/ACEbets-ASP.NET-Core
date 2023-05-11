@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace ACEbets.Models
 {
-    public class BetService : DbContext
+    public class BettingContext : IdentityDbContext<IdentityUser>
     {
-        public BetService(DbContextOptions<BetService> options) : base(options) { }
+        public BettingContext(DbContextOptions<BettingContext> options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Game> Games { get; set; }

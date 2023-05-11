@@ -11,9 +11,9 @@ namespace ACEbets.Controllers
 {
     public class TeamsController : Controller
     {
-        private readonly BetService _context;
+        private readonly BettingContext _context;
 
-        public TeamsController(BetService context)
+        public TeamsController(BettingContext context)
         {
             _context = context;
         }

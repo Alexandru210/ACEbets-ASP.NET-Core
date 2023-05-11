@@ -5,7 +5,7 @@ namespace ACEbets.Repositories
 {
     public class SportRepository : RepositoryBase<Sport>, ISportRepository
     {
-        public SportRepository(BetService bettingContext) : base(bettingContext)
+        public SportRepository(BettingContext bettingContext) : base(bettingContext)
         {
         }
     }

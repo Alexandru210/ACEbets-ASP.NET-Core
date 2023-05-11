@@ -7,9 +7,9 @@ namespace ACEbets.Repositories
 {
     public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
-        protected BetService BettingContext { get; set; }
+        protected BettingContext BettingContext { get; set; }
 
-        public RepositoryBase(BetService bettingContext)
+        public RepositoryBase(BettingContext bettingContext)
         {
             this.BettingContext = bettingContext;
         }
