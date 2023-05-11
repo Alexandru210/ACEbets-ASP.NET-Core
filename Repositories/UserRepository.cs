@@ -5,7 +5,7 @@ namespace ACEbets.Repositories
 {
     public class UserRepository : RepositoryBase<User>, IUserRepository
     {
-        public UserRepository(BetService bettingContext) : base(bettingContext)
+        public UserRepository(BettingContext bettingContext) : base(bettingContext)
         {
         }
     }
