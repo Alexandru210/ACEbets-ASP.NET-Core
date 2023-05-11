@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BettingContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("BettingDb")));
 
-builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<BettingContext>();
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<BettingContext>();
 builder.Services.Add(new ServiceDescriptor(typeof(ILog), new ConsoleLogger()));
 //builder.Services.Add()
 
