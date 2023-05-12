@@ -7,7 +7,6 @@
         ILog LogRepository { get; }
         ISportRepository SportRepository { get; }
         ITeamRepository TeamRepository { get; }
-        IUserRepository UserRepository { get; }
 
         void Save();
     }
