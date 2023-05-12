@@ -7,6 +7,7 @@ using System.Diagnostics;
 
 namespace ACEbets.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

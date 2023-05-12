@@ -15,6 +15,18 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddDbContext<BettingContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("BettingDb")));
 
+builder.Services.AddAuthentication(
+    options =>
+    {
+
+    })
+
+    .AddGoogle(options =>
+    {
+        options.ClientId = "709308979404-pgov7tabl2k9go6sf2au3a3tthvftid3.apps.googleusercontent.com";
+        options.ClientSecret = "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";
+    });
+
 builder.Services.Configure<IdentityOptions>(options =>
 {
     // Password settings
