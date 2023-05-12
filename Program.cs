@@ -8,11 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<BettingContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("BettingDb")));
-
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<BettingContext>();
-builder.Services.Add(new ServiceDescriptor(typeof(ILog), new ConsoleLogger()));
-//builder.Services.Add()
+builder.Services.AddRazorPages();
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<BettingContext>();
+builder.Services.AddDbContext<BettingContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("BettingDb")));
 
 
 var app = builder.Build();
@@ -30,7 +31,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
+
 
 app.MapControllerRoute(
     name: "default",

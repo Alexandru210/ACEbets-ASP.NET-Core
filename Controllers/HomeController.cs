@@ -1,38 +1,27 @@
 ﻿using ACEbets.Models;
 using ACEbets.Repositories.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using System.Diagnostics;
 
 namespace ACEbets.Controllers
 {
     public class HomeController : Controller
     {
-        //private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<HomeController> _logger;
 
-        ILog _log;
-
-        public HomeController(ILog log)
+        public HomeController(ILogger<HomeController> logger)
         {
-            _log = log;
+            _logger = logger;
         }
 
         public IActionResult Index()
         {
-            _log.Info("Executing /home/index");
-
             return View();
         }
 
-        /*public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }*/
-
-        /*public IActionResult Index()
-        {
-            return View();
-        }*/
-
+        [Authorize(Roles = "Administrator")]
         public IActionResult Privacy()
         {
             return View();
