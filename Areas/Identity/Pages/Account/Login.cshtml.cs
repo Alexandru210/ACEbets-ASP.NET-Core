@@ -115,6 +115,7 @@ namespace ACEbets.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+                    TempData["Message"] = "Login successfully!";
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
