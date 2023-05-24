@@ -3,9 +3,11 @@
     public class Game
     {
         public int Id { get; set; }
-
-        public DateTime Date { get; set; }
-
+        public int SportId { get; set; }
+        public string TeamA { get; set; }
+        public string TeamB { get; set; }
+        public DateTime GameDate { get; set; }
+        public string Status { get; set; }
         public float HomeOdds { get; set; }
 
         public float AwayOdds { get;set; }
