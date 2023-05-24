@@ -3,8 +3,6 @@
     public class Bet
     {
         public int Id { get; set; }
-
-
         public Game? Game { get; set; }
 
         public float Amount { get; set; }

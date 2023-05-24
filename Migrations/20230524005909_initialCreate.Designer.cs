@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ACEbets.Migrations
 {
     [DbContext(typeof(BettingContext))]
-    [Migration("20230512004924_m2")]
-    partial class m2
+    [Migration("20230524005909_initialCreate")]
+    partial class initialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

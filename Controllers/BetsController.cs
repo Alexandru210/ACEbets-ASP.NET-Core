@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ACEbets.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace ACEbets.Controllers
 {
+    [Authorize(Roles = "Admin, Member")]
     public class BetsController : Controller
     {
         private readonly BettingContext _context;

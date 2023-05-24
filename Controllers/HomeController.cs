@@ -7,7 +7,7 @@ using System.Diagnostics;
 
 namespace ACEbets.Controllers
 {
-    [Authorize(Roles = "Administrator, Client")]
+    [Authorize(Roles = "Admin, Member")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -22,7 +22,7 @@ namespace ACEbets.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Privacy()
         {
             return View();
