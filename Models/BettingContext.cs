@@ -12,5 +12,7 @@ namespace ACEbets.Models
         public DbSet<Sport> Sports { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Bet> Bets { get; set; }
+        public DbSet<BetStatus> BetsStatus { get; set; }
+        public DbSet<Member> Members { get; set; }
     }
 }

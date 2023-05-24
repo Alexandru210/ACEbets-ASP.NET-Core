@@ -12,6 +12,6 @@
 
         public float DrawOdds { get; set; }
 
-        public ICollection<Bet>? Bets { get; set; }
+        public List<Bet>? Bets { get; set; }
     }
 }
