@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ACEbets.Migrations
 {
     [DbContext(typeof(BettingContext))]
-    [Migration("20230524005909_initialCreate")]
+    [Migration("20230524052626_initialCreate")]
     partial class initialCreate
     {
         /// <inheritdoc />
